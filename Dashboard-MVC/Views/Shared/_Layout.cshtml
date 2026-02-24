@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>
+            @ViewData ["Title"] - Dashboard_MVC
+        </title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link
+            rel="stylesheet"
+            href="~/css/site.css"
+            asp-append-version="true" />
+        <link
+            rel="stylesheet"
+            href="~/Dashboard_MVC.styles.css"
+            asp-append-version="true" />
+        @* style *@
+        <link
+            rel="stylesheet"
+            href="~/css/custom.css"
+            asp-append-version="true" />
+        @* fontawesome *@
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+        @* for browser refresh *@
+        <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+    </head>
+    <body class="container-fluid">
+        <div class="row py-4 not-main">
+            <div class="col d-flex justify-content-between align-items-center">
+                <a asp-controller="Dashboard" asp-action="Index" class="fw-bold | logo">Home</a>
+                
+                <h2 class="fw-bold fst-italic | tracking-wide text-start">Welcome Homie. My name is Tony!</h2>
+
+                <div class="text-end | center-child column-gap-3">
+                    <a asp-controller="User" asp-action="Create" class="btn btn-primary mb-2">Add User</a>
+                    <a asp-controller="User" asp-action="ShowAllUser" class="btn btn-primary mb-2">View Users</a>
+                    <div class="profile text-center">
+                        <img src="/images/lucyhale.jpg" alt="Profile Image" class="img-fluid rounded-circle | profile-img"  />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            @* Sidebar component *@
+            <section class="col-2 | not-main sidebar">
+                <div>
+                    @await Component.InvokeAsync("Sidebar")
+                </div>
+            </section>
+            <main class="col-10 border rounded-start-4 p-4">
+            @RenderBody()
+            </main>
+        </div>
+        <script src="~/lib/jquery/dist/jquery.min.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="~/js/site.js" asp-append-version="true"></script>
+        @await RenderSectionAsync("Scripts", required: false)
+    </body>
+</html>

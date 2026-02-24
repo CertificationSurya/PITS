@@ -1,0 +1,23 @@
+@model UserViewModel;
+
+@{
+    ViewData["Title"] = "Form Submission detail";
+}
+<div class="container mt-5 d-flex justify-content-center">
+    <div class="card text-center shadow-sm" style="max-width: 400px; width: 100%;">
+        <div class="card-header bg-success text-white">
+            Success!
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">User Created Successfully</h5>
+            <p class="card-text"><strong>Name:</strong> @Model.Name</p>
+            <p class="card-text"><strong>Email:</strong> @Model.Email</p>
+            <p class="card-text"><strong>Role:</strong> @Model.Role</p>
+
+            @* known appr *@
+            <a asp-controller="User" asp-action="Create" class="btn btn-primary mt-3">Add Another Student</a>
+            @* run create action of User controller *@
+            @* <a href="@Url.Action("Create", "User")" class="btn btn-primary mt-3">Add Another Student</a> *@
+        </div>
+    </div>
+</div>

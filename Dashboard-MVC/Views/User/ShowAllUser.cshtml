@@ -1,0 +1,28 @@
+@model List<UserViewModel>
+
+@{
+    ViewData["Title"] = "All Users";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">All Users</h2>
+
+    <div class="row g-3">
+        @foreach (var user in Model)
+        {
+            <div class="col-md-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@user.Name</h5>
+                        <p class="card-text"><strong>Email:</strong> @user.Email</p>
+                        <p class="card-text"><strong>Role:</strong> @user.Role</p>
+                        <p class="card-text"><strong>UUID:</strong> @user.Uuid</p>
+                        <a asp-action="Update" asp-route-uuid="@user.Uuid" class="btn btn-warning">
+                            Update
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
