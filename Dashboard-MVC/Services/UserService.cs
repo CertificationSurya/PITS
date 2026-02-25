@@ -55,9 +55,13 @@ namespace Dashboard_MVC.Services
         public void ChangeUserStatus(string uuid)
         {
             var user = Users.FirstOrDefault(u => u.Uuid == uuid);
-            if (user != null)
-            {
-                user.Status = UserStatus.InActive;
+            if (user != null) {
+                if (user.Status == Active){
+                    user.Status = UserStatus.InActive;
+                }
+                else {
+                    user.Status = UserStatus.Active;
+                }
             }
             else {
                 throw new Exception ("User Not Found !");
