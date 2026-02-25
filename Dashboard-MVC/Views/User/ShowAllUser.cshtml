@@ -5,24 +5,36 @@
 }
 
 <div class="container mt-5">
-    <h2 class="mb-4">All Users</h2>
 
     <div class="row g-3">
+        
+        @if (Model == null || !Model.Any()){
+            <div>
+                No User Created !
+            </div>
+        }
+        
+        else {
+
         @foreach (var user in Model)
         {
             <div class="col-md-4">
                 <div class="card shadow-sm">
                     <div class="card-body">
-                        <h5 class="card-title">@user.Name</h5>
+                        <h5 class="card-title">Name: @user.Name</h5>
                         <p class="card-text"><strong>Email:</strong> @user.Email</p>
                         <p class="card-text"><strong>Role:</strong> @user.Role</p>
                         <p class="card-text"><strong>UUID:</strong> @user.Uuid</p>
                         <a asp-action="Update" asp-route-uuid="@user.Uuid" class="btn btn-warning">
                             Update
                         </a>
+                        <a asp-action="ChangeStatus" asp-route-uuid="@user.Uuid" class="btn btn-warning">
+                            @user.Status
+                        </a>
                     </div>
                 </div>
             </div>
+        }
         }
     </div>
 </div>

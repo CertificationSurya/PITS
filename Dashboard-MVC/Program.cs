@@ -1,7 +1,14 @@
+using Dashboard_MVC.Extensions;
+
 var builder = WebApplication.CreateBuilder(args);
+var service = builder.Services;
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+service.AddControllersWithViews();
+
+// hamro userService 
+service.ConfigServices();
+
 
 var app = builder.Build();
 

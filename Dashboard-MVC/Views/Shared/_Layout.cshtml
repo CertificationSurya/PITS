@@ -28,16 +28,25 @@
     <body class="container-fluid">
         <div class="row py-4 not-main">
             <div class="col d-flex justify-content-between align-items-center">
-                <a asp-controller="Dashboard" asp-action="Index" class="fw-bold | logo">Home</a>
-                
-                <h2 class="fw-bold fst-italic | tracking-wide text-start">Welcome Homie. My name is Tony!</h2>
+                <div class="col-2">
+                    
+                    <a asp-controller="Dashboard" asp-action="Index" class="fw-bold | logo">
+                        <i class="fa-solid fa-book-open fs-2 ms-2"></i>
+                        <p>Education Hub</p>
+                    </a>
+                </div>
 
-                <div class="text-end | center-child column-gap-3">
-                    <a asp-controller="User" asp-action="Create" class="btn btn-primary mb-2">Add User</a>
-                    <a asp-controller="User" asp-action="ShowAllUser" class="btn btn-primary mb-2">View Users</a>
-                    <div class="profile text-center">
-                        <img src="/images/lucyhale.jpg" alt="Profile Image" class="img-fluid rounded-circle | profile-img"  />
+                <div class="d-flex justify-content-between align-items-center flex-grow-1">
+                    <h2 class="fw-bold fst-italic | tracking-wide text-left">Education Hub | @ViewData["Title"]</h2>
+
+                    <div class="text-end | center-child column-gap-3">
+                            @* <a asp-controller="User" asp-action="Create" class="btn btn-primary mb-2">Add User</a>
+                            <a asp-controller="User" asp-action="ShowAllUser" class="btn btn-primary mb-2">View Users</a> *@
+                        <div class="profile text-center">
+                            <img title="lucy hale" src="/images/lucyhale.jpg" alt="Profile Image" class="img-fluid rounded-circle | profile-img"  />
+                        </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -49,7 +58,7 @@
                 </div>
             </section>
             <main class="col-10 border rounded-start-4 p-4">
-            @RenderBody()
+                @RenderBody()
             </main>
         </div>
         <script src="~/lib/jquery/dist/jquery.min.js"></script>

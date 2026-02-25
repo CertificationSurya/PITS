@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using Dashboard_MVC.Enums;
 
 public class UserViewModel
 {
@@ -17,6 +18,8 @@ public class UserViewModel
     [RegularExpression("^(Student|Admin|Teacher)$",
         ErrorMessage = "Invalid role selected")]
     public string Role { get; set; }
+
+    public UserStatus Status {get; set;}
 }
 
 

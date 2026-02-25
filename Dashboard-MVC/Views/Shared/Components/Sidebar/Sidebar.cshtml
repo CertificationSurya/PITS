@@ -1,3 +1,12 @@
-<h2>
-    This is sidebar
-</h2>
+<nav>
+    <p>Navigations </p>
+    <a asp-controller="Dashboard" asp-action="Index">Home</a>
+    <a>Profile</a>
+    <a>Privacy</a>
+
+    <hr/>
+
+    <p>Common Actions</p>
+    <a asp-controller="User" asp-action="Create" class="action-nav">Add User</a>
+    <a asp-controller="User" asp-action="ShowAllUser" class="action-nav">View Users</a>    
+</nav>
