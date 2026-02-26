@@ -12,5 +12,6 @@ namespace Dashboard_MVC.Extensions
 
             return services;
         }
+        
     }
 }

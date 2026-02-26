@@ -1,3 +1,5 @@
+@using Dashboard_MVC.Enums;
+
 @model List<UserViewModel>
 
 @{
@@ -25,12 +27,14 @@
                         <p class="card-text"><strong>Email:</strong> @user.Email</p>
                         <p class="card-text"><strong>Role:</strong> @user.Role</p>
                         <p class="card-text"><strong>UUID:</strong> @user.Uuid</p>
-                        <a asp-action="Update" asp-route-uuid="@user.Uuid" class="btn btn-warning">
+                        <a asp-action="Update" asp-route-uuid="@user.Uuid" class="btn btn-primary">
                             Update
                         </a>
-                        <a asp-action="ChangeStatus" asp-route-uuid="@user.Uuid" class="btn btn-warning">
-                            @user.Status
-                        </a>
+                        <a asp-action="ChangeStatus" asp-route-uuid="@user.Uuid"
+                            class="btn @(user.Status == UserStatus.Active ? "btn-success" : "btn-danger")"
+                             onclick="return confirm(`Do you want to change user status`)">
+                                @user.Status
+                            </a>
                     </div>
                 </div>
             </div>

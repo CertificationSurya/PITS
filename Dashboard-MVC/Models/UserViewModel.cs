@@ -3,7 +3,7 @@ using Dashboard_MVC.Enums;
 
 public class UserViewModel
 {
-    public string? Uuid { get; set; }
+    public string? Uuid { get; set; } = Guid.NewGuid().ToString();
 
     [Required(ErrorMessage = "namm lekhega ya dauda dauda kei maruuuu!")]
     [StringLength(50, MinimumLength = 3, ErrorMessage = "Name must be between 3 and 50 characters")]
@@ -13,13 +13,17 @@ public class UserViewModel
     [EmailAddress(ErrorMessage = "Please enter a valid email address")]
     [StringLength(100, ErrorMessage = "Email cannot exceed 100 characters")]
     public string Email { get; set; }
+    
+    // [Required(ErrorMessage = "Password is required")]
+    // [StringLength(10, MinimumLength = 8, ErrorMessage = "Password must be between 8 and 10 characters long")]
+    // public string? Password { get; set; }
 
     [Required(ErrorMessage = "role select karega ya dauda dauda kei maruuuu!")]
     [RegularExpression("^(Student|Admin|Teacher)$",
         ErrorMessage = "Invalid role selected")]
     public string Role { get; set; }
 
-    public UserStatus Status {get; set;}
+    public UserStatus Status {get; set;} = UserStatus.Active;
 }
 
 

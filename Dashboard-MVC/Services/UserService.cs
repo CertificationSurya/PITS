@@ -28,11 +28,9 @@ namespace Dashboard_MVC.Services
         {
             var newUser = new UserViewModel
             {
-                Uuid = Guid.NewGuid().ToString(),
                 Name = user.Name,
                 Email = user.Email,
-                Role = user.Role,
-                Status = UserStatus.Active
+                Role = user.Role
             };
 
             Users.Add(newUser); 
@@ -56,7 +54,7 @@ namespace Dashboard_MVC.Services
         {
             var user = Users.FirstOrDefault(u => u.Uuid == uuid);
             if (user != null) {
-                if (user.Status == Active){
+                if (user.Status == UserStatus.Active){
                     user.Status = UserStatus.InActive;
                 }
                 else {

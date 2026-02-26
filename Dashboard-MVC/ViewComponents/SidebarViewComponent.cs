@@ -6,7 +6,6 @@ public class SidebarViewComponent : ViewComponent
 {
     public IViewComponentResult Invoke()
     {
-        Console.WriteLine("Sidebar invoked");
         // not mentioned? goes for Default.cshtml
         return View("Sidebar");
     }

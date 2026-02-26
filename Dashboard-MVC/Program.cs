@@ -1,13 +1,14 @@
-using Dashboard_MVC.Extensions;
+using Dashboard_MVC;
 
 var builder = WebApplication.CreateBuilder(args);
-var service = builder.Services;
+var services = builder.Services;
 
 // Add services to the container.
-service.AddControllersWithViews();
+services.AddControllersWithViews();
 
-// hamro userService 
-service.ConfigServices();
+// hamro userService + db service. wrote services extensions -> DiConfig holds all then executing Di method
+// service.ConfigServices();
+services.AddAllServiceExtensions(builder.Configuration);
 
 
 var app = builder.Build();

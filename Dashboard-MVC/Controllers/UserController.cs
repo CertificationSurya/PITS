@@ -22,7 +22,7 @@ public class UserController : Controller
         return View();
     }
     
-    // update form page
+    // get page
     [HttpGet("User/Update/{uuid}")]
     public IActionResult Update(string uuid)
     {
@@ -59,7 +59,7 @@ public class UserController : Controller
     }   
 
 
-
+    // update user
     [HttpPost("User/Update/{uuid}")]
     public IActionResult Update(string uuid, UserViewModel? model)
     {
@@ -75,14 +75,13 @@ public class UserController : Controller
 
         }
         catch (Exception e) {
-            Console.WriteLine("ee");
+            Console.WriteLine(e.Message);
         }
         return View("UpdateSuccess", model);
     }
 
-    // TODO: check dis, no disk space PC
 
-    [HttpPost("User/ChangeStatus/{uuid}")]
+    [HttpGet("User/ChangeStatus/{uuid}")]
     public IActionResult ChangeStatus(string uuid, UserViewModel? model)
     {
         try{
@@ -91,7 +90,7 @@ public class UserController : Controller
             return View("UpdateSuccess", user);
         }
         catch (Exception e) {
-            Console.WriteLine("ee");
+            Console.WriteLine(e.Message);
         }
         
         // direct to view without its controller
